@@ -15,8 +15,8 @@ import { createClient as createSupabaseClient } from '@supabase/supabase-js';
  *  - invoice.payment_failed             → payment failed → notify or downgrade
  */
 
-// Next.js needs the raw body to verify the Stripe signature
-export const config = { api: { bodyParser: false } };
+// Note: In Next.js 14 App Router, req.text() gives the raw body automatically.
+// No bodyParser config needed (that was Pages Router syntax).
 
 // Map Stripe product/price to our plan names
 function getPlanFromStripeEvent(priceId: string): 'pro' | 'agency' | 'free' {
