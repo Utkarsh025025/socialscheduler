@@ -267,7 +267,7 @@ export default function AccountsClient({
   }
 
   function handleNotifySubmitted(platform: Platform) {
-    setNotifyRequested((prev) => new Set([...prev, platform]));
+    setNotifyRequested((prev) => new Set(Array.from(prev).concat(platform)));
     toast.success('You\'re on the early access list! 🎉');
   }
 
